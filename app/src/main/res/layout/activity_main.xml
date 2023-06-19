@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/clipboardmain" />
+
+
+    <ImageButton
+        android:id="@+id/inputButton1"
+        android:layout_width="238dp"
+        android:layout_height="68dp"
+        android:scaleType="fitXY"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="218dp"
+        android:layout_marginBottom="28dp"
+        android:background="@null"
+        android:src="@drawable/inputext"
+        android:contentDescription="분석하기"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logButton"
+        android:layout_width="228dp"
+        android:layout_height="48dp"
+        android:scaleType="fitXY"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="218dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="#B1DCEA"
+        android:fontFamily="@font/nanum"
+
+        android:text="기록보기"
+        android:textColor="#F28083"
+        android:textSize="25dp"
+        />
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="357dp"
+        android:layout_height="240dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="102dp"
+        android:background="@drawable/textback"
+        android:hint="여기에 입력해볼까?"
+        android:padding="30dp"
+        android:textColorHint="#A9A9A9" />
+
+</RelativeLayout>
