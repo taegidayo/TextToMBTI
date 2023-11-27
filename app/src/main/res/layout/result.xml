@@ -28,7 +28,7 @@
         <ImageView
             android:id="@+id/resultImageView"
             android:layout_width="match_parent"
-            android:layout_height="600dp"
+            android:layout_height="700dp"
             android:layout_centerInParent="true"
             android:layout_gravity="center|top"
             android:layout_marginTop="120dp"
@@ -42,7 +42,7 @@
             android:text="내 MBTI:ENFP"
             android:textSize="30dp"
             android:layout_marginLeft="115dp"
-            android:layout_marginTop="730dp"
+            android:layout_marginTop="820dp"
             />
 
         <TextView
@@ -51,7 +51,7 @@
             android:text="E"
             android:textSize="30dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="805dp"
+            android:layout_marginTop="900dp"
             />
         <TextView
             android:id="@+id/mind_text"
@@ -60,7 +60,7 @@
             android:text="E:70%"
             android:textSize="30dp"
             android:layout_marginLeft="160dp"
-            android:layout_marginTop="760dp"
+            android:layout_marginTop="855dp"
             />
         <ProgressBar
             android:id="@+id/mind"
@@ -71,7 +71,7 @@
             android:layout_height="50dp"
 
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="800dp"
+            android:layout_marginTop="900dp"
             android:max="100"
             android:progressTint="#F0595B"
             android:progressBackgroundTint="#89CFF0"
@@ -82,7 +82,7 @@
             android:text="I"
             android:textSize="30dp"
             android:layout_marginLeft="370dp"
-            android:layout_marginTop="805dp"
+            android:layout_marginTop="905dp"
             />
 
         <TextView
@@ -92,7 +92,7 @@
             android:text="E:70%"
             android:textSize="30dp"
             android:layout_marginLeft="160dp"
-            android:layout_marginTop="850dp"
+            android:layout_marginTop="950dp"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -100,7 +100,7 @@
             android:text="N"
             android:textSize="30dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="905dp"
+            android:layout_marginTop="1005dp"
             />
 
         <ProgressBar
@@ -112,7 +112,7 @@
             android:layout_height="50dp"
 
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="900dp"
+            android:layout_marginTop="1000dp"
             android:max="100"
             android:progressTint="#EAC802"
             android:progressBackgroundTint="#0098DB"
@@ -123,7 +123,7 @@
             android:text="S"
             android:textSize="30dp"
             android:layout_marginLeft="370dp"
-            android:layout_marginTop="905dp"
+            android:layout_marginTop="1005dp"
             />
 
         <TextView
@@ -133,7 +133,7 @@
             android:text="E:70%"
             android:textSize="30dp"
             android:layout_marginLeft="160dp"
-            android:layout_marginTop="950dp"
+            android:layout_marginTop="1050dp"
             />
 
         <TextView
@@ -142,7 +142,7 @@
             android:text="F"
             android:textSize="30dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="1005dp"
+            android:layout_marginTop="1105dp"
             />
 
         <ProgressBar
@@ -154,7 +154,7 @@
             android:layout_height="50dp"
 
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="1000dp"
+            android:layout_marginTop="1100dp"
             android:max="100"
             android:progressTint="#F8A98E"
             android:progressBackgroundTint="#00B588"
@@ -165,7 +165,7 @@
             android:text="T"
             android:textSize="30dp"
             android:layout_marginLeft="370dp"
-            android:layout_marginTop="1005dp"
+            android:layout_marginTop="1105dp"
             />
         <TextView
             android:id="@+id/tactics_text"
@@ -174,7 +174,7 @@
             android:text="E:70%"
             android:textSize="30dp"
             android:layout_marginLeft="160dp"
-            android:layout_marginTop="1050dp"
+            android:layout_marginTop="1150dp"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -182,7 +182,7 @@
             android:text="J"
             android:textSize="30dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="1105dp"
+            android:layout_marginTop="1205dp"
             />
         <ProgressBar
             android:id="@+id/tactics"
@@ -193,7 +193,7 @@
             android:layout_height="50dp"
 
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="1100dp"
+            android:layout_marginTop="1200dp"
             android:max="100"
             android:progressTint="#E2D1F9"
             android:progressBackgroundTint="#317773"
@@ -204,7 +204,7 @@
             android:text="P"
             android:textSize="30dp"
             android:layout_marginLeft="370dp"
-            android:layout_marginTop="1105dp"
+            android:layout_marginTop="1205dp"
             />
         <ImageButton
             android:id="@+id/share"
