@@ -24,21 +24,19 @@ import java.net.URLEncoder;
 
 
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
-    String ipAddress = "http://10.20.36.179:5000/?text=";
+    // 분석을 요구할 api의 url
+    String url = "http://10.20.36.179:5000/?text=";
     ImageButton btn_main;
-
     Button btn_log;
-
     EditText editText;
-
-
     DatabaseHelper dbHelper;
-
     SQLiteDatabase sqlDB;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +67,9 @@ public class MainActivity extends AppCompatActivity {
         btn_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //사용자 입력텍스트
                 String inputText = editText.getText().toString().trim();
-                String mbti = "";
+
 
 
                 new Thread(new Runnable() {
@@ -84,50 +83,48 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 try {
+                                    String mbti="";
 
-//                                    System.out.println(ipAddress + inputText);
-//                                    URL url = new URL(ipAddress + inputText);
-//                                    String encodeResult = URLEncoder.encode(inputText);
+                                    //사용자가 입력한 텍스트를 api에 요청하기 위한 url작성
+                                    URL url = new URL(MainActivity.this.url + inputText);
+                                    String encodeResult = URLEncoder.encode(inputText);
                                     // HttpURLConnection 생성 및 설정
-//                                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//                                    conn.setRequestMethod("GET");
+                                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                                    conn.setRequestMethod("GET");
 
-                                    // 응답 코드 확인
-//                                    int responseCode = conn.getResponseCode();
-//                                    if (responseCode == HttpURLConnection.HTTP_OK) {
-                                    // 응답 데이터 읽기
-//                                        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-//                                        String line;
-//                                        StringBuilder response = new StringBuilder();
-//                                        while ((line = reader.readLine()) != null) {
-//                                            response.append(line);
-//                                        }
-//                                        reader.close();
+//                                     응답 코드 확인
+                                    int responseCode = conn.getResponseCode();
+                                    if (responseCode == HttpURLConnection.HTTP_OK) {
+//                                     응답 데이터 읽기
 
-                                    // 응답 데이터 처리
-//                                        String responseData = response.toString();
-//                                        System.out.println(responseData);
-//                                        JSONObject object = new JSONObject(responseData);
+                                        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                                        String line;
+                                        StringBuilder response = new StringBuilder();
+                                        while ((line = reader.readLine()) != null) {
+                                            response.append(line);
+                                        }
+                                        reader.close();
 
-                                    String mbti = "";
+//                                     응답 데이터 처리 API응답 예시:{E:10,N:29,F:30,J:50}
+                                        String responseData = response.toString();
+                           
+                                        JSONObject object = new JSONObject(responseData);
 
-                                    double mind = 0.64;
-                                    double energy = 0.71;
-                                    double nature = 0.24;
-                                    double tactics = 0.58;
 
-//                                        double mind = (double) object.getDouble("E");
-//                                        double energy = (double) object.getDouble("N");
-//                                        double nature = (double) object.getDouble("F");
-//                                        double tactics = (double) object.getDouble("J");
+
+                                        double mind = (double) object.getDouble("E");
+                                        double energy = (double) object.getDouble("N");
+                                        double nature = (double) object.getDouble("F");
+                                        double tactics = (double) object.getDouble("J");
                                     mbti += (mind > 0.5) ? "e" : "i";
                                     mbti += (energy > 0.5) ? "n" : "s";
                                     mbti += (nature > 0.5) ? "f" : "t";
                                     mbti += (tactics > 0.5) ? "j" : "p";
 
+
+
                                     sqlDB = dbHelper.getWritableDatabase();
                                     sqlDB.execSQL("INSERT INTO USER (text,mbti,mind,energy,nature,tactics)VALUES ('" + inputText + "','" + mbti + "','" + (Math.round(mind * 100.0) / 100.0) + "','" + (Math.round(energy * 100.0) / 100.0) + "','" + (Math.round(nature * 100.0) / 100.0) + "','" + (Math.round(nature * 100.0) / 100.0) + "')");
-//                                        System.out.println("INSERT INTO USER (text,mbti,mind,energy,nature,tactics)VALUES ('" + inputText + "','" + mbti + "','" + (Math.round(mind * 100.0) / 100.0) + "','" + (Math.round(energy * 100.0) / 100.0) + "','"+(Math.round(nature * 100.0) / 100.0)+"','"+(Math.round(nature * 100.0) / 100.0)+"')");
                                     Intent intent = new Intent(getApplicationContext(), Result.class);
 
 
@@ -138,26 +135,23 @@ public class MainActivity extends AppCompatActivity {
                                     intent.putExtra("tactics", Math.round(tactics * 100.0) / 100.0);
                                     startActivity(intent);
 
-//                                    } else {
-//                                        System.out.println("API 호출 실패: " + responseCode);
-//                                    }
+                                    } else {
+                                        System.out.println("API 호출 실패: " + responseCode);
+                                    }
 
-//                                    conn.disconnect();
+                                    conn.disconnect();
 
-                                }catch (Exception e){
-                                    System.out.println("1");
                                 }
-//                                } catch (MalformedURLException e) {
-//
-//
-//                                    throw new RuntimeException(e);
-//                                } catch (ProtocolException e) {
-//                                    throw new RuntimeException(e);
-//                                } catch (IOException e) {
-//                                    throw new RuntimeException(e);
-//                                } catch (JSONException e) {
-//                                    throw new RuntimeException(e);
-//                                }
+                                 catch (MalformedURLException e) {
+
+                                    throw new RuntimeException(e);
+                                } catch (ProtocolException e) {
+                                    throw new RuntimeException(e);
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                } catch (JSONException e) {
+                                    throw new RuntimeException(e);
+                                }
                             }
                         });
                     }
